@@ -4,7 +4,7 @@ AI Security Audit -> Excel (English-only output)
 
 Reads (mandatory paths):
   - /mnt/data/vision360_fingerprint.json
-  - /mnt/data/requisites.json
+  - /mnt/data/requirements.json
 
 Writes:
   - /mnt/data/security_audit_requirements.xlsx (exactly one sheet named "audit")
@@ -44,7 +44,7 @@ except Exception:
 
 
 FINGERPRINT_PATH = Path("/mnt/data/vision360_fingerprint.json")
-REQUISITES_PATH = Path("/mnt/data/requisites.json")
+REQUISITES_PATH = Path("/mnt/data/requirements.json")
 OUTPUT_XLSX_PATH = Path("/mnt/data/security_audit_requirements.xlsx")
 
 NEGATIVE_RISK_TOKENS = [
@@ -182,7 +182,7 @@ def load_json_with_one_repair(path: Path) -> Any:
 
 def normalize_requirements(data: Any) -> List[Dict[str, Any]]:
     """
-    requisites.json may be:
+    requirements.json may be:
       - list of requirement objects (preferred), OR
       - object containing a 'requirements' list
     """
@@ -190,7 +190,7 @@ def normalize_requirements(data: Any) -> List[Dict[str, Any]]:
         return data
     if isinstance(data, dict) and isinstance(data.get("requirements"), list):
         return data["requirements"]
-    raise ValueError("requisites.json must be a JSON array of requirements (or an object with a 'requirements' array).")
+    raise ValueError("requirements.json must be a JSON array of requirements (or an object with a 'requirements' array).")
 
 
 def normalize_fingerprint_flags(data: Any) -> List[Dict[str, Any]]:
@@ -894,7 +894,7 @@ def main() -> None:
             if strict_english:
                 raise SystemExit(
                     "STRICT_ENGLISH_OUTPUT is enabled, but non-English requirement descriptions were detected and "
-                    "LLM_API_KEY is not set. Provide an English requisites.json OR set LLM_API_KEY to enable translation."
+                    "LLM_API_KEY is not set. Provide an English requirements.json OR set LLM_API_KEY to enable translation."
                 )
             print("[WARN] Non-English descriptions detected; translation skipped because OpenAI is unavailable.", file=sys.stderr)
         else:
@@ -915,7 +915,7 @@ def main() -> None:
         if strict_english and looks_non_english(desc_en):
             raise SystemExit(
                 f"STRICT_ENGLISH_OUTPUT is enabled, but the final description for PUID={puid} is not English. "
-                "Provide an English requisites.json or ensure translation succeeds."
+                "Provide an English requirements.json or ensure translation succeeds."
             )
         desc_en_by_puid[puid] = desc_en
 

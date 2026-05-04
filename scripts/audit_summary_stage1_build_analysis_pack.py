@@ -381,8 +381,8 @@ def main() -> None:
         "positive_controls_candidates": positive_controls[:12],  # cap
         "weakness_patterns": pattern_summary,
         "notes": {
-            "global_replacement": {"SEC-AM": "mSEC-AM"},
-            "method_sentence": "The audit was carried out using the mSEC-AM (mobile SECurity Audit Method).",
+            "global_replacement": {"SEC-AM": "mSEC-AT"},
+            "method_sentence": "The audit was carried out using the mSEC-AT (mobile SECurity Audit Tool).",
             "prohibitions": [
                 "No category-level bullet dumps in narrative.",
                 "No long exhaustive lists of IDs.",

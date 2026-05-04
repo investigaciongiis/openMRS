@@ -48,14 +48,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          test -f "scripts/requirements/requisites.json"
+          test -f "scripts/requirements.json"
 
           python - <<'PY'
           import json, sys
           from pathlib import Path
 
-          src = Path("scripts/requirements/requisites.json")
-          dst = Path("/mnt/data/requisites.json")
+          src = Path("scripts/requirements.json")
+          dst = Path("/mnt/data/requirements.json")
           raw = src.read_text(encoding="utf-8", errors="replace")
 
           s = raw.lstrip()
@@ -75,7 +75,7 @@ jobs:
               data = data["requirements"]
 
           if not isinstance(data, list):
-              print("requisites.json must be a JSON array.", file=sys.stderr)
+              print("requirements.json must be a JSON array.", file=sys.stderr)
               raise SystemExit(1)
 
           dst.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")

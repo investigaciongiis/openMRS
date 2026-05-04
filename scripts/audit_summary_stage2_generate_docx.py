@@ -31,7 +31,7 @@ DEFAULT_IN = "/mnt/data/audit_summary_analysis_pack.json"
 DEFAULT_OUT = "/mnt/data/Audit Summary.docx"
 CHART_DIR = "/mnt/data/_audit_summary_charts"
 
-HEADER_TEXT = "mSEC-AM Audit Summary - " + literals["header_text"]
+HEADER_TEXT = "mSEC-AT Audit Summary - " + literals["header_text"]
 
 COVER_PAGE = literals["cover_page_text"]
 
@@ -111,7 +111,7 @@ def _add_header_footer(section, audit_date_str: str) -> None:
 
 def _add_cover(doc: Document, audit_date_str: str, auditor: str) -> None:
     doc.add_paragraph()
-    t = doc.add_paragraph("mSEC-AM Audit Summary")
+    t = doc.add_paragraph("mSEC-AT Audit Summary")
     t.alignment = WD_ALIGN_PARAGRAPH.CENTER
     t.runs[0].font.size = Pt(28)
     t.runs[0].bold = True
@@ -601,7 +601,7 @@ def main() -> None:
     doc.add_paragraph("- Compliant: the workbook provides sufficient evidence that the control is implemented and effective for the assessed scope.\n- Non-compliant: the workbook indicates the control is missing, insufficient, or not evidenced.\n- Not applicable: the control is recorded as out of scope or not relevant for the assessed context.")
 
     add_nav_heading("5. Audit summary", 1)
-    doc.add_paragraph("The audit was carried out using the mSEC-AM (mobile SECurity Audit Method).")
+    doc.add_paragraph("The audit was carried out using the mSEC-AT (mobile SECurity Audit Tool).")
     doc.add_paragraph(f"Overall, {int(metrics['total_assessed'])} requirements were assessed. {applicable} were applicable controls and {not_applicable} were recorded as not applicable. Of the applicable controls, {compliant} were compliant and {non_compliant} were non-compliant, resulting in an overall compliance rate of {overall_pct:.2f}% (applicable controls only).")
     doc.add_paragraph("This report summarizes the dominant weakness patterns evidenced by non-compliant requirements and proposes actionable remediations suitable for mHealth/EMR environments handling sensitive health information.")
 

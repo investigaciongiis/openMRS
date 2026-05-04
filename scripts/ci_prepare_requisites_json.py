@@ -96,14 +96,14 @@ def main():
             repaired = _one_minimal_repair_pass(raw)
         except json.JSONDecodeError as e2:
             print(
-                f"Error parseando requisites.json: {type(e2).__name__}: {e2.msg} (línea {e2.lineno}, col {e2.colno})",
+                f"Error parseando requirements.json: {type(e2).__name__}: {e2.msg} (línea {e2.lineno}, col {e2.colno})",
                 file=sys.stderr,
             )
             sys.exit(1)
 
         if repaired is None:
             print(
-                f"Error parseando requisites.json: {type(e1).__name__}: {e1.msg} (línea {e1.lineno}, col {e1.colno})",
+                f"Error parseando requirements.json: {type(e1).__name__}: {e1.msg} (línea {e1.lineno}, col {e1.colno})",
                 file=sys.stderr,
             )
             sys.exit(1)
@@ -113,7 +113,7 @@ def main():
     reqs = _extract_requirements_array(data)
 
     if not isinstance(reqs, list) or len(reqs) == 0:
-        print("requisites.json debe ser un array JSON de requisitos no vacío.", file=sys.stderr)
+        print("requirements.json debe ser un array JSON de requisitos no vacío.", file=sys.stderr)
         sys.exit(1)
 
     # Minimal schema sanity checks (fast-fail)

@@ -12,20 +12,20 @@
     "Main language": "Java + Kotlin + XML + Groovy"
   },
   "actors": {
-    "Auditor": "Juan Jos√© L√≥pez Jim√©nez",
+    "Auditor": "Juan JosÈ LÛpez JimÈnez",
     "Requirement Engineering team": [
-      "Carlos M. Mej√≠a-Granda",
-      "Jos√© L Fern√°ndez-Alem√°n",
+      "Carlos M. MejÌa-Granda",
+      "JosÈ L Fern·ndez-Alem·n",
       "Juan Manuel Carrillo-de-Gea",
-      "Joaqu√≠n Nicol√°s",
-      "Juan Jos√© L√≥pez Jim√©nez"
+      "JoaquÌn Nicol·s",
+      "Juan JosÈ LÛpez JimÈnez"
     ],
     "Engineering Group (EN)": [
-      "Carlos M. Mej√≠a-Granda",
-      "Jos√© L Fern√°ndez-Alem√°n",
+      "Carlos M. MejÌa-Granda",
+      "JosÈ L Fern·ndez-Alem·n",
       "Juan Manuel Carrillo-de-Gea",
-      "Joaqu√≠n Nicol√°s",
-      "Juan Jos√© L√≥pez Jim√©nez"
+      "JoaquÌn Nicol·s",
+      "Juan JosÈ LÛpez JimÈnez"
     ]
   },
   "header_text": "OpenMRS Android Client v3.1.1",

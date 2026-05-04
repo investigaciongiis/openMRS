@@ -1,5 +1,5 @@
 ---
-name: mSEC-AM audit pipeline orchestrator
+name: mSEC-AT audit pipeline orchestrator
 
 on:
   push:
